@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-alabaster: #F2F3F4;
+  --color-charcoal: #2E2E2E;
+  --color-obsidian: #0D0D0D;
+  --color-cyber-gold: #D4AF37;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #F2F3F4;
+    color: #2E2E2E;
+    scroll-behavior: auto !important;
+  }
+
+  html.dark {
+    background-color: #0D0D0D;
+    color: #F2F3F4;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+}
+
+@keyframes pulseSpotlight {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.animate-spotlight-pulse {
+  animation: pulseSpotlight 5s ease-in-out infinite;
+}
+
+@keyframes heroMarqueeSlide {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-hero-marquee {
+  animation: heroMarqueeSlide 34s linear infinite;
+  will-change: transform;
+}
+
+
